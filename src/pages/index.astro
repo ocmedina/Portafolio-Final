@@ -1,14 +1,35 @@
 ---
+import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
 import SectionContainer from '../components/SectionContainer.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Tecnologias from "../components/Tecnologias.astro";
+import Proyectos from "../components/Proyectos.astro";
+import Contacto from "../components/Contacto.astro";
 ---
 
 <Layout title="Octavio Medina" description="Desarrollador y Diseñador Web ">
-	<main class="px-4">
+	<main class="px-2">
 		<SectionContainer>
+			<Hero />
+			<slot />
+		</SectionContainer>
 
+		<SectionContainer id="sobre-mi">
+			<About />
+		</SectionContainer>
+
+		<SectionContainer id="tecnologias">
+			<Tecnologias />
+		</SectionContainer>
+
+		<SectionContainer class="m-36" id="proyectos">
+			<Proyectos />
+		</SectionContainer>
+
+		<SectionContainer id="contacto">
+			<Contacto />
 		</SectionContainer>
 	</main>
 </Layout>

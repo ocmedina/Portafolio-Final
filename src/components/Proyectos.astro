@@ -1,0 +1,51 @@
+---
+// Projects.astro
+const projects = [
+  {
+    title: "To-Do App",
+    description: "Aplicación móvil en React Native con modo oscuro, animaciones y gestión de tareas.",
+    image: "/images/todo-app.png",
+    link: "https://github.com/octamedinadev/todo-app",
+    tech: ["React Native", "Expo", "TypeScript"],
+  },
+  {
+    title: "OM-Tecnología",
+    description: "Sitio web para mi emprendimiento de servicio técnico con panel de seguimiento.",
+    image: "/public/om-tec.png",
+    link: "https://om-tecnologia.netlify.app/",
+    tech: ["HTML", "CSS", "JavaScript", "Netlify"],
+  },
+  {
+    title: "Blog Personal",
+    description: "Blog desarrollado en Astro con Markdown y diseño minimalista.",
+    image: "/images/blog.png",
+    link: "#",
+    tech: ["Astro", "Markdown", "TailwindCSS"],
+  },
+];
+---
+
+<section id="projects" class="py-5 bg-gradient-to-b  to-slate-950 text-white">
+  <div class="container mx-auto px-2">
+    <h2 class="text-4xl font-bold mb-10 text-center">Proyectos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-blue-500/40 transition-shadow">
+          <img src={project.image} alt={project.title} class="w-full h-48 object-cover" />
+          <div class="p-5">
+            <h3 class="text-xl font-semibold mb-2">{project.title}</h3>
+            <p class="text-slate-300 mb-4">{project.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tech.map(tech => (
+                <span class="bg-blue-600 text-xs px-2 py-1 rounded-full">{tech}</span>
+              ))}
+            </div>
+            <a href={project.link} target="_blank" class="inline-block text-blue-400 hover:text-blue-300 font-medium">
+              Ver Proyecto →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
