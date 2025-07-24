@@ -1,0 +1,28 @@
+---
+// Script global para aplicar modo oscuro y cambiar ícono
+---
+<script is:global>
+  const html = document.documentElement;
+  const setIcon = (isDark) => {
+    const icon = document.getElementById('theme-icon');
+    if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+  };
+
+  // Al cargar: aplicar tema guardado y ajustar ícono
+  if (localStorage.theme === 'dark') {
+    html.classList.add('dark');
+    setIcon(true);
+  } else {
+    html.classList.remove('dark');
+    setIcon(false);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
+    toggle?.addEventListener('click', () => {
+      const isDark = html.classList.toggle('dark');
+      localStorage.theme = isDark ? 'dark' : 'light';
+      setIcon(isDark);
+    });
+  });
+</script>

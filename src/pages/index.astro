@@ -7,29 +7,32 @@ import SectionContainer from '../components/SectionContainer.astro';
 import Tecnologias from "../components/Tecnologias.astro";
 import Proyectos from "../components/Proyectos.astro";
 import Contacto from "../components/Contacto.astro";
+import ThemeToggleScript from "../components/ThemeToggleScript.astro";
 ---
 
-<Layout title="Octavio Medina" description="Desarrollador y Diseñador Web ">
-	<main class="px-2">
-		<SectionContainer>
-			<Hero />
-			<slot />
-		</SectionContainer>
+<Layout title="Octavio Medina" description="Desarrollador y Diseñador Web">
+  <ThemeToggleScript /> <!-- ✅ fuera del <main> -->
 
-		<SectionContainer id="sobre-mi">
-			<About />
-		</SectionContainer>
+  <main class="px-2">
+    <SectionContainer>
+      <Hero />
+      <slot />
+    </SectionContainer>
 
-		<SectionContainer id="tecnologias">
-			<Tecnologias />
-		</SectionContainer>
+    <SectionContainer id="sobre-mi">
+      <About />
+    </SectionContainer>
 
-		<SectionContainer class="m-36" id="proyectos">
-			<Proyectos />
-		</SectionContainer>
+    <SectionContainer id="tecnologias">
+      <Tecnologias />
+    </SectionContainer>
 
-		<SectionContainer id="contacto">
-			<Contacto />
-		</SectionContainer>
-	</main>
+    <SectionContainer class="m-36" id="proyectos">
+      <Proyectos />
+    </SectionContainer>
+
+    <SectionContainer id="contacto">
+      <Contacto />
+    </SectionContainer>
+  </main>
 </Layout>
