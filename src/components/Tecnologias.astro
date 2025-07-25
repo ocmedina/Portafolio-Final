@@ -8,6 +8,10 @@ import Python from "../icons/Python.astro";
 import Tailwind from "../icons/Tailwind.astro";
 import JavaScript from "../icons/JavaScript.astro";
 import Node from "../icons/Node.astro";
+import Git from "../icons/git.astro";
+import Figma from "../icons/figma.astro";
+import NextJS from "../icons/NextJS.astro";
+import vscode from "../icons/vscode.astro";
 ---
 
 <section class="py-16 bg-slate-950 text-white">
@@ -26,6 +30,11 @@ import Node from "../icons/Node.astro";
         { name: "Astro", Component: Astro1 },
         { name: "Python", Component: Python },
         { name: "Tailwind", Component: Tailwind },
+        { name: "Git", Component: Git },
+        { name: "Figma", Component: Figma },
+        { name: "Next JS", Component: NextJS },
+        { name: "Visual Studio Code", Component: vscode },
+
       ].map(({ name, Component }) => (
         <div class="flex flex-col items-center gap-2 hover:scale-105 transition-transform duration-300 group">
           <Component class="w-16 h-16 md:w-20 md:h-20 drop-shadow-md group-hover:animate-bounce" />
