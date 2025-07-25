@@ -1,23 +1,34 @@
 ---
-// Opcionalmente podés definir íconos personalizados o usar una librería
+import { Github, Mail, Linkedin } from "lucide-react"; // Asegurate de tener lucide-react o íconos similares instalados
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-100 dark:bg-slate-900 text-gray-700 dark:text-gray-300 py-6 mt-10 border-t border-gray-300 dark:border-gray-700">
-  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-    
-    <p>&copy; {year} Octavio Medina. Todos los derechos reservados.</p>
+<footer class="bg-gray-100 dark:bg-slate-900 text-gray-700 dark:text-gray-300 border-t border-gray-300 dark:border-gray-700 mt-10">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
 
-    <div class="flex gap-4">
-      <a href="https://github.com/ocmedina" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition">
-        GitHub
+    <!-- Texto del copyright -->
+    <p class="text-center md:text-left text-xs sm:text-sm">
+      &copy; {year} <span class="font-semibold text-blue-600 dark:text-blue-400">Octavio Medina</span>. Todos los derechos reservados.
+    </p>
+
+    <!-- Redes sociales -->
+    <div class="flex gap-5">
+      <a href="https://github.com/ocmedina" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 hover:text-blue-500 transition-colors">
+        <Github class="w-4 h-4" />
+        <span class="hidden sm:inline">GitHub</span>
       </a>
-      <a href="https://linkedin.com/in/octamedinadev" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition">
-        LinkedIn
+      <a href="https://linkedin.com/in/octamedinadev" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 hover:text-blue-500 transition-colors">
+        <Linkedin class="w-4 h-4" />
+        <span class="hidden sm:inline">LinkedIn</span>
       </a>
-      <a href="mailto:octaviomedina239@gmail.com" class="hover:text-blue-500 transition">
-        Email
+      <a href="mailto:octaviomedina239@gmail.com"
+         class="flex items-center gap-2 hover:text-blue-500 transition-colors">
+        <Mail class="w-4 h-4" />
+        <span class="hidden sm:inline">Email</span>
       </a>
     </div>
+    
   </div>
 </footer>
