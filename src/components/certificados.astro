@@ -1,0 +1,40 @@
+---
+// Este archivo puede llamarse Certificados.astro o estar dentro de tu página principal
+const certificados = [
+  {
+    nombre: "Desarrollo Web Full Stack",
+    institucion: "Instituto Tecnologico de Buenos Aires",
+    año: 2024,
+    url: "https://view.pok.tech/c/106b7c55-8843-42f8-acb9-93943d01c48a",
+  },
+  {
+    nombre: "Responsive Web Design",
+    institucion: "FreeCodeCamp",
+    año: 2025,
+    url: "https://www.freecodecamp.org/certification/Octamedinadev/responsive-web-design",
+  },
+  {
+    nombre: "Digital Ad Certificate de Marketing Digital.",
+    institucion: "Digital AdExpert",
+    año: 2024,
+    url: "https://learn.digitaladexpert.com/es/certificado/?course_id=398069&user_id=807280",
+  },
+];
+---
+
+<section id="certificados" class="py-16 bg-slate-950 text-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-10 text-center">📜 Certificados</h2>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {certificados.map((cert) => (
+        <a href={cert.url} target="_blank" rel="noopener noreferrer" class="block p-6 bg-slate-900 rounded-2xl shadow-md hover:scale-[1.02] transition-all border border-slate-700 hover:border-indigo-400">
+          <h3 class="text-lg font-semibold text-indigo-400">{cert.nombre}</h3>
+          <p class="text-sm text-slate-300">{cert.institucion}</p>
+          <p class="text-xs text-slate-500 mt-1">{cert.año}</p>
+          <p class="mt-2 text-indigo-300 underline text-sm">Ver certificado</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

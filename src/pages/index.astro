@@ -6,8 +6,8 @@ import About from '../components/About.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import Tecnologias from "../components/Tecnologias.astro";
 import Proyectos from "../components/Proyectos.astro";
-import Footer from "../components/Footer.astro";
 import ThemeToggleScript from "../components/ThemeToggleScript.astro";
+import Certificados from "../components/certificados.astro";
 ---
 
 <Layout title="Octavio Medina" description="Desarrollador y Diseñador Web">
@@ -29,6 +29,10 @@ import ThemeToggleScript from "../components/ThemeToggleScript.astro";
 
     <SectionContainer class="m-36" id="proyectos">
       <Proyectos />
+    </SectionContainer>
+
+    <SectionContainer id="certificados">
+      <Certificados />
     </SectionContainer>
 
   </main>
