@@ -1,5 +1,4 @@
 ---
-// src/components/Header.astro
 const title = "";
 const navLinks = [
   { name: "Inicio", href: "#inicio" },
@@ -10,23 +9,16 @@ const navLinks = [
 
 <header class="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md transition-colors duration-300">
   <div class="container mx-auto px-4 py-4">
-    <div class="flex items-center">
-      <!-- Logo a la izquierda -->
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
       <div class="flex items-center space-x-2">
-        <img 
-          src="/logo2.png" 
-          alt="Logo" 
-          class="w-20 h-auto object-contain"
-        />
-        <a 
-          href="/" 
-          class="text-xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >
+        <img src="/logo2.png" alt="Logo" class="w-20 h-auto object-contain" />
+        <a href="/" class="text-xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           {title}
         </a>
       </div>
 
-      <!-- Navegación centrada -->
+      <!-- Navegación desktop -->
       <nav class="hidden md:flex flex-grow justify-center space-x-8">
         {navLinks.map((link) => (
           <a 
@@ -39,9 +31,9 @@ const navLinks = [
         ))}
       </nav>
 
-      <!-- Botones a la derecha -->
+      <!-- Botones -->
       <div class="flex items-center space-x-4">
-        <!-- Botón modo oscuro -->
+        <!-- Modo oscuro -->
         <button
           id="theme-toggle"
           class="p-2 rounded-full bg-gray-200 text-black dark:bg-gray-800 dark:text-white shadow-md transition-colors"
@@ -52,24 +44,18 @@ const navLinks = [
 
         <!-- Botón menú móvil -->
         <button 
-          id="mobile-menu-button" 
-          class="md:hidden text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-2 focus:outline-none"
+          id="mobile-menu-button"
+          class="md:hidden text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-2"
           aria-label="Abrir menú móvil"
         >
-          <svg 
-            class="w-6 h-6" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- Menú móvil oculto por defecto -->
+    <!-- Menú móvil -->
     <nav id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4">
       {navLinks.map((link) => (
         <a 
@@ -81,4 +67,18 @@ const navLinks = [
       ))}
     </nav>
   </div>
+
+  <!-- Script para el botón del menú -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+
+      if (menuBtn && menu) {
+        menuBtn.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      }
+    });
+  </script>
 </header>
