@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+:root {
+  /* Modo claro por defecto */
+  --color-background: #FFFFFF;
+  --color-text: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Modo oscuro */
+    --color-background: #121212;
+    --color-text: #FFFFFF;
+  }
+}
