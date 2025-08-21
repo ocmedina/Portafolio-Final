@@ -7,13 +7,13 @@ const navLinks = [
 ];
 ---
 
-<header class="sticky top-0 z-50 dark:bg-gray-900 shadow-md transition-colors duration-300">
+<header class="sticky top-0 z-50 bg-gray-900 shadow-md transition-colors duration-300">
   <div class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center space-x-2">
         <img src="/logo2.png" alt="Logo" class="w-20 h-auto object-contain" />
-        <a href="/" class="text-xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <a href="/" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">
           {title}
         </a>
       </div>
@@ -23,21 +23,20 @@ const navLinks = [
         {navLinks.map((link) => (
           <a 
             href={link.href}
-            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors relative group"
+            class="text-white hover:text-blue-400 font-medium transition-colors relative group"
           >
             {link.name}
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
         ))}
       </nav>
 
       <!-- Botones -->
       <div class="flex items-center space-x-4">
-
         <!-- Botón menú móvil -->
         <button 
           id="mobile-menu-button"
-          class="md:hidden text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-2"
+          class="md:hidden text-white hover:bg-gray-700 rounded-lg p-2 transition-colors"
           aria-label="Abrir menú móvil"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,7 +51,7 @@ const navLinks = [
       {navLinks.map((link) => (
         <a 
           href={link.href}
-          class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
+          class="block py-2 px-4 text-white hover:bg-gray-700 rounded transition-colors"
         >
           {link.name}
         </a>
