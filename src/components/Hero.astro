@@ -9,10 +9,7 @@
       <h2 class="text-4xl sm:text-5xl font-bold mb-4">
         ¡Hola! Soy <span class="text-blue-400">Octavio Medina</span>
       </h2>
-      <p class="text-lg sm:text-xl text-gray-300 mb-6">
-        Desarrollador Full Stack y Diseñador Web
-      </p>
-
+    <span id="dynamicText" class="text-lg md:text-xl block min-h-[3rem]" />
       <div class="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start mb-6">
         <a href="/Octavio-Medina1.pdf" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
           Descargar CV
@@ -36,4 +33,43 @@
   </div>
 </section>
 
+<script>
+  const roles = ["Desarrollador Web Full Stack", "Diseñador UI/UX", "Freelancer"];
+  let currentRoleIndex = 0;
+  const dynamicText = document.getElementById('dynamicText');
+
+  function typeRole(role, callback) {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < role.length) {
+        dynamicText.textContent += role.charAt(index);
+        index++;
+      } else {
+        clearInterval(interval);
+        setTimeout(callback, 2000); // Espera 2 segundos antes de borrar
+      }
+    }, 100);
+  }
+
+  function deleteRole(callback) {
+    const interval = setInterval(() => {
+      if (dynamicText.textContent.length > 0) {
+        dynamicText.textContent = dynamicText.textContent.slice(0, -1);
+      } else {
+        clearInterval(interval);
+        callback();
+      }
+    }, 50);
+  }
+
+  function loopRoles() {
+    typeRole(roles[currentRoleIndex], () => {
+      deleteRole(() => {
+        currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+        loopRoles();
+      });
+    });
+  }
+
+  loopRoles();
 
