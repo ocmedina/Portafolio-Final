@@ -110,7 +110,7 @@ const getTypeLabel = (type: string) => {
 
     <div class="relative">
       <!-- Línea vertical del timeline -->
-      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent"></div>
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent z-0"></div>
 
       <div class="space-y-12">
         {experiences.map((exp, index) => (
@@ -121,10 +121,10 @@ const getTypeLabel = (type: string) => {
             <div class={`flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8`}>
               
               <!-- Punto en el timeline -->
-              <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-950 z-10 pulse-dot"></div>
+              <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-950 z-0 pulse-dot"></div>
               
               <!-- Contenido -->
-              <div class={`w-full ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'} bg-slate-900/50 backdrop-blur-sm p-6 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group`}>
+              <div class={`w-full ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'} bg-slate-900/50 backdrop-blur-sm p-6 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group relative z-10`}>
                 
                 <!-- Header -->
                 <div class={`flex ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} flex-wrap items-center justify-between gap-4 mb-4`}>
