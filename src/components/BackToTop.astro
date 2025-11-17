@@ -1,0 +1,60 @@
+---
+// Botón para volver arriba
+---
+
+<button
+  id="back-to-top"
+  class="fixed bottom-6 left-6 z-50 p-4 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white rounded-full shadow-xl transition-all duration-300 opacity-0 invisible hover:scale-110 group"
+  aria-label="Volver arriba"
+  title="Volver arriba"
+>
+  <svg
+    class="w-6 h-6 transition-transform group-hover:-translate-y-1"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    stroke-width="2.5"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+<style>
+  #back-to-top {
+    backdrop-filter: blur(10px);
+  }
+
+  #back-to-top:hover {
+    box-shadow: 0 0 30px rgba(100, 116, 139, 0.4);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const backToTopButton = document.getElementById("back-to-top");
+
+    if (!backToTopButton) return;
+
+    // Mostrar/ocultar el botón según el scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.remove("opacity-0", "invisible");
+        backToTopButton.classList.add("opacity-100", "visible");
+      } else {
+        backToTopButton.classList.add("opacity-0", "invisible");
+        backToTopButton.classList.remove("opacity-100", "visible");
+      }
+    });
+
+    // Manejar el click
+    backToTopButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  });
+</script>

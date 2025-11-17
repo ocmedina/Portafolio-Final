@@ -17,34 +17,43 @@ import Typescript from "../icons/Typescript.astro";
 
 <section class="py-16 bg-slate-950 text-white">
   <div class="w-full h-auto mt-20">
-    <h2 class="text-4xl font-bold mb-14 text-center tracking-wide">Tecnologías</h2>
+    <h2
+      class="text-4xl font-bold mb-14 text-center tracking-wide"
+      data-animate="fade-down"
+    >
+      Tecnologías
+    </h2>
 
-    <div class="flex flex-wrap justify-center gap-x-8 gap-y-10 max-w-6xl mx-auto px-4">
+    <div
+      class="flex flex-wrap justify-center gap-x-8 gap-y-10 max-w-6xl mx-auto px-4"
+      data-animate="fade-up"
+    >
       <!-- Lista de tecnologías -->
-      {[
-        { name: "HTML 5", Component: Html },
-        { name: "CSS 3", Component: Css },
-        { name: "JavaScript", Component: JavaScript },
-        { name: "Node JS", Component: Node },
-        { name: "React", Component: React },
-        { name: "Vite", Component: Vite },
-        { name: "Astro", Component: Astro1 },
-        { name: "Python", Component: Python },
-        { name: "Tailwind", Component: Tailwind },
-        { name: "Git", Component: Git },
-        { name: "Figma", Component: Figma },
-        { name: "Next JS", Component: NextJS },
-        { name: "Visual Studio Code", Component: vscode },
-        { name: "Typescript", Component: Typescript },
-
-      ].map(({ name, Component }) => (
-        <div class="flex flex-col items-center gap-2 hover:scale-105 transition-transform duration-300 group">
-          <Component class="w-16 h-16 md:w-20 md:h-20 drop-shadow-md group-hover:animate-bounce" />
-          <p class="text-sm md:text-base text-slate-300 group-hover:text-white transition-colors duration-300">
-            {name}
-          </p>
-        </div>
-      ))}
+      {
+        [
+          { name: "HTML 5", Component: Html },
+          { name: "CSS 3", Component: Css },
+          { name: "JavaScript", Component: JavaScript },
+          { name: "Node JS", Component: Node },
+          { name: "React", Component: React },
+          { name: "Vite", Component: Vite },
+          { name: "Astro", Component: Astro1 },
+          { name: "Python", Component: Python },
+          { name: "Tailwind", Component: Tailwind },
+          { name: "Git", Component: Git },
+          { name: "Figma", Component: Figma },
+          { name: "Next JS", Component: NextJS },
+          { name: "Visual Studio Code", Component: vscode },
+          { name: "Typescript", Component: Typescript },
+        ].map(({ name, Component }) => (
+          <div class="flex flex-col items-center gap-2 hover:scale-105 transition-transform duration-300 group">
+            <Component class="w-16 h-16 md:w-20 md:h-20 drop-shadow-md group-hover:animate-bounce" />
+            <p class="text-sm md:text-base text-slate-300 group-hover:text-white transition-colors duration-300">
+              {name}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

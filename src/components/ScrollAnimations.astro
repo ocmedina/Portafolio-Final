@@ -1,0 +1,217 @@
+---
+// Componente para animaciones al hacer scroll usando Intersection Observer
+---
+
+<div id="scroll-animations-wrapper">
+  <slot />
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Verificar si el usuario prefiere reducir movimiento
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      // Si prefiere reducir movimiento, no aplicar animaciones
+      return;
+    }
+
+    // Configuración del Intersection Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    // Callback cuando un elemento entra en viewport
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          const animationType = target.getAttribute("data-animate");
+
+          // Agregar clases según el tipo de animación
+          target.classList.add("animate-in");
+
+          if (animationType) {
+            target.classList.add(`animate-${animationType}`);
+          }
+
+          // Dejar de observar el elemento después de animar
+          observer.unobserve(target);
+        }
+      });
+    };
+
+    // Crear el observer
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Observar todos los elementos con data-animate
+    const animatedElements = document.querySelectorAll("[data-animate]");
+    animatedElements.forEach((el) => {
+      // Agregar clase inicial
+      el.classList.add("animate-initial");
+      observer.observe(el);
+    });
+  });
+</script>
+
+<style is:global>
+  /* Estado inicial - elementos invisibles */
+  .animate-initial {
+    opacity: 0;
+  }
+
+  /* Estado animado - elementos visibles */
+  .animate-in {
+    opacity: 1;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Fade Up - desplazamiento desde abajo */
+  .animate-fade-up {
+    animation-name: fadeUp;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Fade Down - desplazamiento desde arriba */
+  .animate-fade-down {
+    animation-name: fadeDown;
+  }
+
+  @keyframes fadeDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Fade Left - desplazamiento desde la derecha */
+  .animate-fade-left {
+    animation-name: fadeLeft;
+  }
+
+  @keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Fade Right - desplazamiento desde la izquierda */
+  .animate-fade-right {
+    animation-name: fadeRight;
+  }
+
+  @keyframes fadeRight {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Zoom In - escala desde pequeño */
+  .animate-zoom-in {
+    animation-name: zoomIn;
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Fade - solo opacidad */
+  .animate-fade {
+    animation-name: fade;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Flip - rotación */
+  .animate-flip {
+    animation-name: flip;
+  }
+
+  @keyframes flip {
+    from {
+      opacity: 0;
+      transform: rotateY(-90deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateY(0);
+    }
+  }
+
+  /* Delays para animaciones escalonadas */
+  [data-animate-delay="100"] {
+    animation-delay: 0.1s;
+  }
+
+  [data-animate-delay="200"] {
+    animation-delay: 0.2s;
+  }
+
+  [data-animate-delay="300"] {
+    animation-delay: 0.3s;
+  }
+
+  [data-animate-delay="400"] {
+    animation-delay: 0.4s;
+  }
+
+  [data-animate-delay="500"] {
+    animation-delay: 0.5s;
+  }
+
+  /* Respeta la preferencia de reducir movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-in {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>

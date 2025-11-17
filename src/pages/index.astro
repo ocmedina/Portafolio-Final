@@ -1,18 +1,23 @@
 ---
 import "../styles/global.css";
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import SectionContainer from '../components/SectionContainer.astro';
+import Layout from "../layouts/Layout.astro";
+import ScrollAnimations from "../components/ScrollAnimations.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Stats from "../components/Stats.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 import Tecnologias from "../components/Tecnologias.astro";
 import Proyectos from "../components/Proyectos.astro";
 import Experiencias from "../components/experiencias.astro";
 import Certificados from "../components/certificados.astro";
+import Contacto from "../components/Contacto.astro";
 ---
 
-<Layout title="Octavio Medina" description="Desarrollador y Diseñador Web">
-
-  <main class="px-2">
+<Layout
+  title="Octavio Medina - Desarrollador Web Full Stack"
+  description="Portafolio de Octavio Medina, desarrollador web full stack especializado en frontend. React, Astro, Next.js, TypeScript y más."
+>
+  <ScrollAnimations>
     <SectionContainer>
       <Hero />
       <slot />
@@ -21,6 +26,9 @@ import Certificados from "../components/certificados.astro";
     <SectionContainer id="sobre-mi">
       <About />
     </SectionContainer>
+
+    <!-- Estadísticas animadas -->
+    <Stats />
 
     <SectionContainer id="tecnologias">
       <Tecnologias />
@@ -38,5 +46,8 @@ import Certificados from "../components/certificados.astro";
       <Certificados />
     </SectionContainer>
 
-  </main>
+    <SectionContainer id="contacto">
+      <Contacto />
+    </SectionContainer>
+  </ScrollAnimations>
 </Layout>

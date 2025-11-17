@@ -6,12 +6,23 @@ interface Project {
   link: string;
   repo: string;
   tech: string[];
+  category?: string;
 }
 
 const projects: Project[] = [
   {
+    title: "FrontStock",
+    description:
+      "Sistema de gestión integral para comercios. Control de ventas con tickets imprimibles, gestión automática de inventario con alertas de stock mínimo, administración de clientes y proveedores, reportes estadísticos completos, sistema multiusuario con permisos. Desarrollado con Next.js, Supabase (PostgreSQL + Auth) y TailwindCSS para ofrecer una solución moderna, rápida y escalable.",
+    image: "/frontstock.png",
+    link: "https://github.com/ocmedina/my-app",
+    repo: "https://github.com/ocmedina/my-app",
+    tech: ["React", "Next.js", "Tailwind", "Typescript"],
+  },
+  {
     title: "OM-Tecnología",
-    description: "Sitio web para mi emprendimiento de servicio técnico con panel de seguimiento.",
+    description:
+      "Sitio web para mi emprendimiento de servicio técnico con panel de seguimiento.",
     image: "/om-tec.png",
     link: "https://om-tecnologia.netlify.app/",
     repo: "https://github.com/ocmedina/Page-OM-Tecnologia",
@@ -19,7 +30,8 @@ const projects: Project[] = [
   },
   {
     title: "Todo List OM",
-    description: "Aplicación web de lista de tareas con filtros, categorías, modo oscuro y animaciones. Desarrollada con React, Zustand y TailwindCSS.",
+    description:
+      "Aplicación web de lista de tareas con filtros, categorías, modo oscuro y animaciones. Desarrollada con React, Zustand y TailwindCSS.",
     image: "/Todo-list.jpg",
     link: "https://list-omdev.vercel.app/",
     repo: "https://github.com/ocmedina/TODO-LIST",
@@ -27,109 +39,295 @@ const projects: Project[] = [
   },
   {
     title: "Frontio - Web Solutions",
-    description: "Frontio es mi proyecto personal de desarrollo web, donde diseño y creo sitios modernos, rápidos y adaptados a cada necesidad, con foco en frontend, experiencia de usuario y buenas prácticas.",
+    description:
+      "Frontio es mi proyecto personal de desarrollo web, donde diseño y creo sitios modernos, rápidos y adaptados a cada necesidad, con foco en frontend, experiencia de usuario y buenas prácticas.",
     image: "/Frontio-logo.jpg",
-    link: "https://frontio-web.netlify.app/",
+    link: "https://frontio.com.ar/",
     repo: "https://github.com/ocmedina/Frontio---Web-Solutions",
     tech: ["React", "Vite", "Tailwind", "Swiper", "Netlify", "Typescript"],
   },
   {
     title: "Tienduca",
-    description: "Tienduca nació como respuesta a la necesidad de los emprendedores locales de darse a conocer y conectar directamente con sus clientes, sin depender de intermediarios ni complejas plataformas de pago. Se desarrolló como una plataforma web intuitiva, creada con Next.js y Tailwind CSS, que permite mostrar productos y servicios de manera visual y organizada por categorías. Gracias a su diseño práctico, los clientes pueden explorar fácilmente lo que buscan y contactar directamente al emprendedor, impulsando la visibilidad y el crecimiento de los negocios locales.",
+    description:
+      "Tienduca nació como respuesta a la necesidad de los emprendedores locales de darse a conocer y conectar directamente con sus clientes, sin depender de intermediarios ni complejas plataformas de pago. Se desarrolló como una plataforma web intuitiva, creada con Next.js y Tailwind CSS, que permite mostrar productos y servicios de manera visual y organizada por categorías. Gracias a su diseño práctico, los clientes pueden explorar fácilmente lo que buscan y contactar directamente al emprendedor, impulsando la visibilidad y el crecimiento de los negocios locales.",
     image: "/Tienduca.png",
     link: "https://tienduca.com.ar/",
     repo: "https://github.com/ocmedina/Tienduca",
-    tech: ["Next.js", "Tailwind", "Swiper", "Framer Motion", "Typescript", "Vercel"],
-  },
-  {
-    title: "Ecommerce Paola Lenceria (En desarrollo)",
-    description: "Proyecto de tienda online de lencería desarrollado con React. Se utilizaron Tailwind CSS para un diseño responsivo y Swiper para un catálogo de productos interactivo. Demostración de habilidades en desarrollo front-end y creación de componentes reutilizables.",
-    image: "/PaolaLenceria.png",
-    link: "https://paola-lenceria.vercel.app/",
-    repo: "https://github.com/ocmedina/paola-lenceria-page",
-    tech: ["React", "Tailwind", "Swiper", "Framer Motion", "Typescript", "Vercel"],
+    tech: [
+      "Next.js",
+      "Tailwind",
+      "Swiper",
+      "Framer Motion",
+      "Typescript",
+      "Vercel",
+    ],
   },
   {
     title: "Landing Page Bodega Mendocina",
-    description: "Proyecto de landing page para una bodega de vinos en Mendoza, Argentina. Desarrollado con NextJS y Tailwind CSS, incluye un diseño atractivo y responsivo, con secciones para historia, productos y contacto. Utiliza Swiper para un carrusel de productos y Framer Motion para animaciones suaves, ofreciendo una experiencia de usuario envolvente.",
+    description:
+      "Proyecto de landing page para una bodega de vinos en Mendoza, Argentina. Desarrollado con NextJS y Tailwind CSS, incluye un diseño atractivo y responsivo, con secciones para historia, productos y contacto. Utiliza Swiper para un carrusel de productos y Framer Motion para animaciones suaves, ofreciendo una experiencia de usuario envolvente.",
     image: "/Bodega_Page.png",
     link: "https://bodeg-page.vercel.app/",
     repo: "https://github.com/ocmedina/bodeg-page",
-    tech: ["React", "Tailwind", "Swiper", "Framer Motion", "Typescript", "Vercel"],
-  }
-  
+    tech: [
+      "React",
+      "Tailwind",
+      "Swiper",
+      "Framer Motion",
+      "Typescript",
+      "Vercel",
+    ],
+  },
 ];
 ---
 
 <section id="projects" class="py-16 bg-slate-950 text-white">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r text-white to-blue-500">
-      Proyectos
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map(project => (
-        <div class="relative group p-6 rounded-3xl transition-transform duration-500 bg-slate-900 shadow-md shadow-slate-800/50
+    <h2 class="text-4xl font-bold mb-8 text-center text-white">Proyectos</h2>
+    <p class="text-center text-slate-400 mb-8 max-w-2xl mx-auto">
+      Explora mis proyectos más recientes y las tecnologías que he utilizado
+    </p>
+
+    <!-- Filtros de proyectos -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <button
+        class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700"
+        data-filter="all"
+      >
+        Todos
+      </button>
+      <button
+        class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700"
+        data-filter="React"
+      >
+        React
+      </button>
+      <button
+        class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700"
+        data-filter="Next.js"
+      >
+        Next.js
+      </button>
+      <button
+        class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700"
+        data-filter="Tailwind"
+      >
+        Tailwind
+      </button>
+      <button
+        class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700"
+        data-filter="Typescript"
+      >
+        TypeScript
+      </button>
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div
+      id="projects-grid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    >
+      {
+        projects.map((project) => (
+          <div
+            class="relative group p-6 rounded-3xl transition-transform duration-500 bg-slate-900 shadow-md shadow-slate-800/50
             hover:-translate-y-2 hover:shadow-lg
             before:absolute before:inset-0 before:rounded-3xl before:border before:border-transparent before:pointer-events-none
             before:transition-all before:duration-500
-            group-hover:before:border-cyan-400 group-hover:before:shadow-[0_0_25px_rgba(34,211,238,0.6)]">
-
-          <div class="relative w-full h-48 overflow-hidden rounded-2xl mb-6">
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </div>
-
-          <div class="flex flex-col flex-grow">
-            <h3 class="text-2xl font-bold mb-2 text-white transition-colors duration-300 group-hover:text-cyan-400">
-              {project.title}
-            </h3>
-            <div class="flex flex-wrap gap-2 mb-4">
-              {project.tech.map(tech => (
-                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/50 text-blue-400
-                  transition-all duration-300
-                  group-hover:bg-blue-500/20 group-hover:text-white group-hover:border-transparent">{tech}</span>
-              ))}
+            group-hover:before:border-cyan-400 group-hover:before:shadow-[0_0_25px_rgba(34,211,238,0.6)]"
+          >
+            <div class="relative w-full h-48 overflow-hidden rounded-2xl mb-6">
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
             </div>
 
-            <p class="text-slate-400 text-sm mb-6 flex-grow max-h-full md:max-h-16 overflow-hidden transition-all duration-500 group-hover:max-h-96">
-              {project.description}
-            </p>
-          </div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-2xl font-bold mb-2 text-white transition-colors duration-300 group-hover:text-cyan-400">
+                {project.title}
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech) => (
+                  <span
+                    class="tech-badge text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/50 text-blue-400
+                  transition-all duration-300
+                  group-hover:bg-blue-500/20 group-hover:text-white group-hover:border-transparent"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
 
-          <div class="flex flex-wrap gap-3 mt-auto">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Ir al proyecto ${project.title}`}
-              class="relative z-10 flex items-center justify-center gap-2 flex-1 text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300
+              <p class="text-slate-400 text-sm mb-6 flex-grow max-h-full md:max-h-16 overflow-hidden transition-all duration-500 group-hover:max-h-96">
+                {project.description}
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-3 mt-auto">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ir al proyecto ${project.title}`}
+                class="relative z-10 flex items-center justify-center gap-2 flex-1 text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300
                 bg-blue-600 hover:bg-blue-500 text-white hover:scale-105"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 015.656 5.656l-4.828 4.828a4 4 0 01-5.656-5.656" />
-              </svg>
-              Proyecto
-            </a>
-            <a
-              href={project.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Ver el repositorio de ${project.title}`}
-              class="relative z-10 flex items-center justify-center gap-2 flex-1 text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-4 h-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.828 10.172a4 4 0 015.656 5.656l-4.828 4.828a4 4 0 01-5.656-5.656"
+                  />
+                </svg>
+                Proyecto
+              </a>
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver el repositorio de ${project.title}`}
+                class="relative z-10 flex items-center justify-center gap-2 flex-1 text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300
                 bg-slate-700 hover:bg-slate-600 text-white hover:scale-105"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.263.82-.583 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.755-1.333-1.755-1.09-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.805 1.305 3.49.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 016 0c2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.625-5.475 5.921.43.37.823 1.096.823 2.21 0 1.595-.015 2.88-.015 3.27 0 .322.217.697.825.58C20.565 21.795 24 17.3 24 12c0-6.63-5.373-12-12-12z"/>
-              </svg>
-              Repo
-            </a>
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  class="w-4 h-4"
+                >
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.263.82-.583 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.755-1.333-1.755-1.09-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.805 1.305 3.49.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 016 0c2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.625-5.475 5.921.43.37.823 1.096.823 2.21 0 1.595-.015 2.88-.015 3.27 0 .322.217.697.825.58C20.565 21.795 24 17.3 24 12c0-6.63-5.373-12-12-12z" />
+                </svg>
+                Repo
+              </a>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
+    </div>
+
+    <!-- Mensaje cuando no hay resultados -->
+    <div id="no-results" class="hidden text-center py-12">
+      <div class="flex justify-center mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="64"
+          height="64"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-slate-600"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </div>
+      <p class="text-slate-400 text-lg">
+        No se encontraron proyectos con ese filtro
+      </p>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll("#projects-grid > div");
+    const noResults = document.getElementById("no-results");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
+
+        // Actualizar botones activos
+        filterButtons.forEach((btn) => {
+          btn.classList.remove("active", "bg-blue-600", "text-white");
+          btn.classList.add(
+            "bg-slate-800",
+            "text-slate-300",
+            "border-slate-700"
+          );
+        });
+
+        button.classList.add("active", "bg-blue-600", "text-white");
+        button.classList.remove(
+          "bg-slate-800",
+          "text-slate-300",
+          "border-slate-700"
+        );
+
+        // Filtrar proyectos
+        let visibleCount = 0;
+
+        projectCards.forEach((card) => {
+          const techElements = card.querySelectorAll(".tech-badge");
+          const technologies = Array.from(techElements).map((el) =>
+            el.textContent?.trim()
+          );
+
+          if (
+            filter === "all" ||
+            technologies.some((tech) => tech === filter)
+          ) {
+            (card as HTMLElement).style.display = "block";
+            card.classList.add("animate-fade-in");
+            visibleCount++;
+          } else {
+            (card as HTMLElement).style.display = "none";
+            card.classList.remove("animate-fade-in");
+          }
+        });
+
+        // Mostrar mensaje si no hay resultados
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove("hidden");
+          } else {
+            noResults.classList.add("hidden");
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .filter-btn {
+    cursor: pointer;
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .filter-btn.active {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+</style>

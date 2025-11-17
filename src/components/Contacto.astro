@@ -1,3 +1,176 @@
 ---
-const email = "octaviomedina239@gmail.com"; // Cambia esto por tu email real
+const email = "octaviomedina239@gmail.com";
 ---
+
+<section id="contacto" class="py-20 px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold mb-4 text-center text-slate-100">
+      ¿Trabajamos juntos?
+    </h2>
+    <p class="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
+      Estoy disponible para proyectos freelance y oportunidades laborales. Si
+      tienes un proyecto en mente o simplemente quieres conectar, no dudes en
+      contactarme.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Información de contacto -->
+      <div class="space-y-6">
+        <h3 class="text-2xl font-semibold text-slate-100 mb-6">
+          Información de contacto
+        </h3>
+
+        <div class="flex items-start gap-4">
+          <div class="p-3 bg-blue-600 rounded-lg">
+            <svg
+              class="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-100">Email</h4>
+            <a
+              href={`mailto:${email}`}
+              class="text-blue-400 hover:text-blue-300 transition"
+            >
+              {email}
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="p-3 bg-blue-600 rounded-lg">
+            <svg
+              class="w-6 h-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 .5C5.8.5.6 5.7.6 12c0 5.1 3.3 9.4 7.8 10.9.6.1.8-.2.8-.5v-1.9c-3.2.7-3.8-1.5-3.8-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.7 2.7 1.2 3.3.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2.9-.3 1.8-.4 2.7-.4.9 0 1.8.1 2.7.4 2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 3 .1 3.3.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.5-1.5 7.8-5.8 7.8-10.9C23.4 5.7 18.2.5 12 .5z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-100">GitHub</h4>
+            <a
+              href="https://github.com/ocmedina"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 hover:text-blue-300 transition"
+            >
+              @ocmedina
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="p-3 bg-blue-600 rounded-lg">
+            <svg
+              class="w-6 h-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1 5 2.1 5 3.5zM.5 8h4V24h-4V8zm7.5 0h3.6v2.2h.1c.5-1 1.8-2.2 3.7-2.2 4 0 4.7 2.7 4.7 6.3V24h-4v-7.9c0-1.9-.1-4.3-2.6-4.3-2.6 0-3 2-3 4.1V24h-4V8z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-100">LinkedIn</h4>
+            <a
+              href="https://www.linkedin.com/in/octamedinadev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 hover:text-blue-300 transition"
+            >
+              octamedinadev
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de contacto -->
+      <div
+        class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700"
+      >
+        <h3 class="text-2xl font-semibold text-slate-100 mb-6">
+          Envíame un mensaje
+        </h3>
+        <form
+          action={`https://formspree.io/f/YOUR_FORM_ID`}
+          method="POST"
+          class="space-y-4"
+        >
+          <div>
+            <label
+              for="name"
+              class="block text-sm font-medium text-slate-200 mb-2"
+              >Nombre</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-slate-200 mb-2">Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-medium text-slate-200 mb-2"
+              >Mensaje</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="4"
+              class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+              placeholder="Cuéntame sobre tu proyecto..."></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300"
+          >
+            Enviar mensaje
+          </button>
+
+          <p class="text-xs text-slate-400 text-center">
+            También puedes escribirme directamente a <a
+              href={`mailto:${email}`}
+              class="text-blue-400 hover:underline">{email}</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

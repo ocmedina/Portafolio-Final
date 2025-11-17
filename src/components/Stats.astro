@@ -1,0 +1,194 @@
+---
+import { Rocket, Briefcase, Zap, Coffee } from "lucide-react";
+
+interface Stat {
+  number: number;
+  label: string;
+  suffix?: string;
+}
+
+const stats: Stat[] = [
+  {
+    number: 3,
+    label: "Años de Experiencia",
+    suffix: "+",
+  },
+  {
+    number: 8,
+    label: "Proyectos Completados",
+    suffix: "+",
+  },
+  {
+    number: 14,
+    label: "Tecnologías Dominadas",
+    suffix: "+",
+  },
+  {
+    number: 100,
+    label: "Taza de Café",
+    suffix: "+",
+  },
+];
+---
+
+<section class="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div
+        class="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+        data-animate="zoom-in"
+        data-animate-delay={0}
+      >
+        <div class="flex justify-center mb-3">
+          <Rocket className="w-10 h-10 text-blue-400" client:load />
+        </div>
+        <div
+          class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 counter-wrapper"
+        >
+          <span
+            class="counter"
+            data-target={stats[0].number}
+            data-suffix={stats[0].suffix || ""}
+          >
+            0
+          </span>
+        </div>
+        <p class="text-slate-300 text-sm md:text-base font-medium">
+          {stats[0].label}
+        </p>
+      </div>
+
+      <div
+        class="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+        data-animate="zoom-in"
+        data-animate-delay={100}
+      >
+        <div class="flex justify-center mb-3">
+          <Briefcase className="w-10 h-10 text-blue-400" client:load />
+        </div>
+        <div
+          class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 counter-wrapper"
+        >
+          <span
+            class="counter"
+            data-target={stats[1].number}
+            data-suffix={stats[1].suffix || ""}
+          >
+            0
+          </span>
+        </div>
+        <p class="text-slate-300 text-sm md:text-base font-medium">
+          {stats[1].label}
+        </p>
+      </div>
+
+      <div
+        class="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+        data-animate="zoom-in"
+        data-animate-delay={200}
+      >
+        <div class="flex justify-center mb-3">
+          <Zap className="w-10 h-10 text-blue-400" client:load />
+        </div>
+        <div
+          class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 counter-wrapper"
+        >
+          <span
+            class="counter"
+            data-target={stats[2].number}
+            data-suffix={stats[2].suffix || ""}
+          >
+            0
+          </span>
+        </div>
+        <p class="text-slate-300 text-sm md:text-base font-medium">
+          {stats[2].label}
+        </p>
+      </div>
+
+      <div
+        class="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+        data-animate="zoom-in"
+        data-animate-delay={300}
+      >
+        <div class="flex justify-center mb-3">
+          <Coffee className="w-10 h-10 text-blue-400" client:load />
+        </div>
+        <div
+          class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 counter-wrapper"
+        >
+          <span
+            class="counter"
+            data-target={stats[3].number}
+            data-suffix={stats[3].suffix || ""}
+          >
+            0
+          </span>
+        </div>
+        <p class="text-slate-300 text-sm md:text-base font-medium">
+          {stats[3].label}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    const animateCounter = (counter: Element) => {
+      const target = parseInt(counter.getAttribute("data-target") || "0");
+      const suffix = counter.getAttribute("data-suffix") || "";
+      const duration = 2000; // 2 segundos
+      const frameDuration = 1000 / 60; // 60fps
+      const totalFrames = Math.round(duration / frameDuration);
+      let frame = 0;
+
+      const counterAnimation = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        const currentValue = Math.round(target * progress);
+
+        counter.textContent = currentValue + suffix;
+
+        if (frame === totalFrames) {
+          clearInterval(counterAnimation);
+        }
+      }, frameDuration);
+    };
+
+    // Intersection Observer para iniciar la animación cuando sea visible
+    const observerOptions = {
+      root: null,
+      threshold: 0.5,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const countersInView = entry.target.querySelectorAll(".counter");
+          countersInView.forEach((counter) => {
+            if (!counter.classList.contains("animated")) {
+              counter.classList.add("animated");
+              animateCounter(counter);
+            }
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Observar la sección de estadísticas
+    const statsSection = document
+      .querySelector(".counter-wrapper")
+      ?.closest("section");
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  });
+</script>

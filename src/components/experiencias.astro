@@ -1,0 +1,208 @@
+---
+import { Briefcase, Rocket, GraduationCap, Calendar, Sparkles, Wrench, ChevronRight } from 'lucide-react';
+
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  achievements: string[];
+  technologies: string[];
+  type: "work" | "freelance" | "education";
+}
+
+const experiences: Experience[] = [
+  {
+    title: "Desarrollador Full Stack - FrontStock",
+    company: "Sistema de Gestión y Ventas para Negocios",
+    period: "2024 - Presente",
+    type: "work",
+    description: "Sistema integral de gestión diseñado para pequeños y medianos comercios. Control completo de ventas, stock, clientes y finanzas de forma simple, rápida y confiable.",
+    achievements: [
+      "Desarrollo de sistema multiusuario con control de permisos",
+      "Implementación de gestión automática de inventario con alertas",
+      "Sistema de reportes e informes estadísticos en tiempo real",
+      "Gestión de cuentas corrientes y múltiples métodos de pago",
+      "Reducción de errores manuales y optimización de procesos comerciales"
+    ],
+    technologies: ["Next.js", "React", "Supabase", "PostgreSQL", "Tailwind CSS", "TypeScript"]
+  },
+  {
+    title: "Desarrollador Web Full Stack",
+    company: "Freelance - Frontio Web Solutions",
+    period: "2024 - Presente",
+    type: "freelance",
+    description: "Desarrollo de sitios web modernos y aplicaciones web para clientes locales y emprendedores.",
+    achievements: [
+      "Creación de más de 5 proyectos web funcionales y escalables",
+      "Implementación de diseños responsivos y accesibles",
+      "Mejora en la presencia digital de emprendimientos locales",
+      "Reducción del 40% en tiempos de carga mediante optimización"
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Astro", "Vercel"]
+  },
+  {
+    title: "Bootcamp Full Stack Developer",
+    company: "Instituto Tecnológico de Buenos Aires (ITBA)",
+    period: "2024",
+    type: "education",
+    description: "Programa intensivo de desarrollo web full stack con enfoque en tecnologías modernas.",
+    achievements: [
+      "Completado con éxito el programa de 6 meses",
+      "Desarrollo de proyectos reales con metodologías ágiles",
+      "Trabajo colaborativo en equipo usando Git/GitHub",
+      "Aprendizaje de arquitecturas escalables y buenas prácticas"
+    ],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Git", "Scrum"]
+  },
+  {
+    title: "Tecnicatura en Programación",
+    company: "Universidad Tecnológica Nacional (UTN)",
+    period: "2024 - Presente",
+    type: "education",
+    description: "Carrera de grado enfocada en programación y desarrollo de software.",
+    achievements: [
+      "Cursando actualmente con excelentes calificaciones",
+      "Proyectos prácticos en Python y C++",
+      "Aprendizaje de estructuras de datos y algoritmos",
+      "Desarrollo de software orientado a objetos"
+    ],
+    technologies: ["Python", "C++", "Java", "SQL", "Git"]
+  }
+];
+
+const getTypeColor = (type: string) => {
+  switch (type) {
+    case "work":
+      return "bg-blue-500/20 border-blue-500 text-blue-400";
+    case "freelance":
+      return "bg-purple-500/20 border-purple-500 text-purple-400";
+    case "education":
+      return "bg-green-500/20 border-green-500 text-green-400";
+    default:
+      return "bg-gray-500/20 border-gray-500 text-gray-400";
+  }
+};
+
+const getTypeLabel = (type: string) => {
+  switch (type) {
+    case "work":
+      return "Trabajo";
+    case "freelance":
+      return "Freelance";
+    case "education":
+      return "Educación";
+    default:
+      return type;
+  }
+};
+---
+
+<section id="experiencias" class="py-20 bg-slate-950 text-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+      <Briefcase className="w-10 h-10 text-blue-400" client:load />
+      Experiencia
+    </h2>
+    <p class="text-center text-slate-400 mb-16 max-w-2xl mx-auto">
+      Mi trayectoria profesional y formación académica en el desarrollo web
+    </p>
+
+    <div class="relative">
+      <!-- Línea vertical del timeline -->
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent"></div>
+
+      <div class="space-y-12">
+        {experiences.map((exp, index) => (
+          <div 
+            class={`relative ${index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2'}`}
+            data-animate="fade-up"
+          >
+            <div class={`flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8`}>
+              
+              <!-- Punto en el timeline -->
+              <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-950 z-10 pulse-dot"></div>
+              
+              <!-- Contenido -->
+              <div class={`w-full ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'} bg-slate-900/50 backdrop-blur-sm p-6 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group`}>
+                
+                <!-- Header -->
+                <div class={`flex ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} flex-wrap items-center justify-between gap-4 mb-4`}>
+                  <span class={`px-3 py-1 text-xs font-semibold rounded-full border ${getTypeColor(exp.type)} flex items-center gap-1.5`}>
+                    {exp.type === "work" && <Briefcase className="w-3.5 h-3.5" client:load />}
+                    {exp.type === "freelance" && <Rocket className="w-3.5 h-3.5" client:load />}
+                    {exp.type === "education" && <GraduationCap className="w-3.5 h-3.5" client:load />}
+                    {getTypeLabel(exp.type)}
+                  </span>
+                  <span class="text-sm text-slate-400 font-mono flex items-center gap-1.5">
+                    <Calendar className="w-4 h-4" client:load />
+                    {exp.period}
+                  </span>
+                </div>
+
+                <!-- Título y Empresa -->
+                <h3 class="text-2xl font-bold text-blue-400 mb-2 group-hover:text-blue-300 transition-colors">
+                  {exp.title}
+                </h3>
+                <p class="text-lg text-slate-300 mb-4 font-semibold">
+                  {exp.company}
+                </p>
+                
+                <!-- Descripción -->
+                <p class="text-slate-400 mb-4 leading-relaxed">
+                  {exp.description}
+                </p>
+
+                <!-- Logros -->
+                <div class="mb-4">
+                  <h4 class="text-sm font-semibold text-slate-200 mb-2 flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-yellow-400" client:load />
+                    Logros destacados:
+                  </h4>
+                  <ul class={`space-y-2 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                    {exp.achievements.map((achievement) => (
+                      <li class="text-sm text-slate-400 flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" client:load />
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Tecnologías -->
+                <div>
+                  <h4 class="text-sm font-semibold text-slate-200 mb-2 flex items-center gap-1.5">
+                    <Wrench className="w-4 h-4 text-blue-400" client:load />
+                    Tecnologías:
+                  </h4>
+                  <div class={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
+                    {exp.technologies.map((tech) => (
+                      <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700 hover:border-blue-500 transition-colors">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes pulse-dot {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+  }
+
+  .pulse-dot {
+    animation: pulse-dot 2s infinite;
+  }
+</style>

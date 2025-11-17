@@ -1,4 +1,6 @@
 ---
+import { Award } from "lucide-react";
+
 // Este archivo puede llamarse Certificados.astro o estar dentro de tu página principal
 const certificados = [
   {
@@ -13,13 +15,13 @@ const certificados = [
     año: 2025,
     url: "https://freecodecamp.org/espanol/certification/octamedinadev/responsive-web-design",
   },
-   {
+  {
     nombre: "Front End Development Libraries",
     institucion: "FreeCodeCamp",
     año: 2025,
     url: "https://freecodecamp.org/certification/octamedinadev/front-end-development-libraries",
   },
-   {
+  {
     nombre: "Data Visualization",
     institucion: "FreeCodeCamp",
     año: 2025,
@@ -36,17 +38,31 @@ const certificados = [
 
 <section id="certificados" class="py-16 bg-slate-950 text-white">
   <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-4xl font-bold mb-10 text-center">📜 Certificados</h2>
+    <h2
+      class="text-4xl font-bold mb-10 text-center flex items-center justify-center gap-3"
+    >
+      <Award className="w-10 h-10 text-blue-400" client:load />
+      Certificados
+    </h2>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {certificados.map((cert) => (
-        <a href={cert.url} target="_blank" rel="noopener noreferrer" class="block p-6 bg-slate-900 rounded-2xl shadow-md hover:scale-[1.02] transition-all border border-slate-700 hover:border-indigo-400">
-          <h3 class="text-lg font-semibold text-indigo-400">{cert.nombre}</h3>
-          <p class="text-sm text-slate-300">{cert.institucion}</p>
-          <p class="text-xs text-slate-500 mt-1">{cert.año}</p>
-          <p class="mt-2 text-indigo-300 underline text-sm">Ver certificado</p>
-        </a>
-      ))}
+      {
+        certificados.map((cert) => (
+          <a
+            href={cert.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block p-6 bg-slate-900 rounded-2xl shadow-md hover:scale-[1.02] transition-all border border-slate-700 hover:border-indigo-400"
+          >
+            <h3 class="text-lg font-semibold text-indigo-400">{cert.nombre}</h3>
+            <p class="text-sm text-slate-300">{cert.institucion}</p>
+            <p class="text-xs text-slate-500 mt-1">{cert.año}</p>
+            <p class="mt-2 text-indigo-300 underline text-sm">
+              Ver certificado
+            </p>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

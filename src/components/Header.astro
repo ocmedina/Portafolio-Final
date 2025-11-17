@@ -2,46 +2,65 @@
 const title = "";
 const navLinks = [
   { name: "Inicio", href: "#inicio" },
-  { name: "Sobre mí", href: "#about" },
-  { name: "Proyectos", href: "#projects" },
+  { name: "Sobre mí", href: "#sobre-mi" },
+  { name: "Tecnologías", href: "#tecnologias" },
+  { name: "Experiencias", href: "#experiencias" },
+  { name: "Proyectos", href: "#proyectos" },
   { name: "Certificados", href: "#certificados" },
+  { name: "Contacto", href: "#contacto" },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-gray-900 shadow-md transition-colors duration-300">
+<header
+  class="sticky top-0 z-50 bg-gray-900 shadow-md transition-colors duration-300"
+>
   <div class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center space-x-2">
         <img src="/logo2.png" alt="Logo" class="w-20 h-auto object-contain" />
-        <a href="/" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">
+        <a
+          href="/"
+          class="text-xl font-bold text-white hover:text-blue-400 transition-colors"
+        >
           {title}
         </a>
       </div>
 
       <!-- Navegación desktop -->
       <nav class="hidden md:flex flex-grow justify-center space-x-8">
-        {navLinks.map((link) => (
-          <a 
-            href={link.href}
-            class="text-white hover:text-blue-400 font-medium transition-colors relative group"
-          >
-            {link.name}
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-        ))}
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-white hover:text-blue-400 font-medium transition-colors relative group"
+            >
+              {link.name}
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))
+        }
       </nav>
 
       <!-- Botones -->
       <div class="flex items-center space-x-4">
         <!-- Botón menú móvil -->
-        <button 
+        <button
           id="mobile-menu-button"
           class="md:hidden text-white hover:bg-gray-700 rounded-lg p-2 transition-colors"
           aria-label="Abrir menú móvil"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
@@ -49,14 +68,16 @@ const navLinks = [
 
     <!-- Menú móvil -->
     <nav id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4">
-      {navLinks.map((link) => (
-        <a 
-          href={link.href}
-          class="block py-2 px-4 text-white hover:bg-gray-700 rounded transition-colors"
-        >
-          {link.name}
-        </a>
-      ))}
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block py-2 px-4 text-white hover:bg-gray-700 rounded transition-colors"
+          >
+            {link.name}
+          </a>
+        ))
+      }
     </nav>
   </div>
 
